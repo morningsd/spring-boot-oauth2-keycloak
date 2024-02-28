@@ -1,0 +1,22 @@
+spring:
+  security.oauth2:
+    client.registration.keycloak:
+      client-id: demo
+      client-secret: snl4NJtyiMdC8wCbpY05NIAr5sxVUwhL
+      authorization-grant-type: authorization_code
+      scope: openid
+      redirect-uri: http://localhost:8080/login/oauth2/code/demo
+    client.provider.keycloak:
+      issuer-uri: http://localhost:8180/realms/Demo
+      user-name-attribute: preferred_username
+    resourceserver.jwt:
+      issuer-uri: http://localhost:8180/realms/Demo
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/keycloak
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa.properties:
+    hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
